@@ -2,12 +2,185 @@
 
 int main(int argc, char const *argv[])
 {
+    /*
+    使用scanf为一个有10个元素的数组初始化0~10的数字，统计其中每个元素出现的次数
+    */
+    int arr[10];
+    int count[11] = {0};
+
+    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+    {
+        scanf("%d", &arr[i]);
+        count[arr[i]]++;
+    }
+    for (int i = 0; i < sizeof(count) / sizeof(count[0]); i++)
+    {
+        printf("数字%d：%d次\n", i, count[i]);
+    }
 
     return 0;
 }
 
 #include <stdbool.h>
 #define PI 3.14159
+
+/*
+查找一个有5个元素的数组中的第二大的元素
+ */
+// int arr[5] = {5, 6, 7, 8, 3};
+
+// for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+// {
+//     for (int j = i + 1; j < sizeof(arr) / sizeof(arr[0]); j++)
+//     {
+//         if (arr[j] < arr[i])
+//         {
+//             int temp = arr[j];
+//             arr[j] = arr[i];
+//             arr[i] = temp;
+//         }
+//     }
+// }
+
+// // for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+// // {
+// //     printf("%d ", arr[i]);
+// // }
+// printf("第二大的元素是：%d", arr[(sizeof(arr) / sizeof(arr[0]) - 2)]);
+
+/*
+初始化一个有10个元素的数组，计算输出数组中所有偶数的个数
+ */
+// int arr[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+// int count = 0;
+
+// for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+// {
+//     if (arr[i] % 2 == 0)
+//     {
+//         count++;
+//     }
+// }
+// printf("偶数的个数是：%d", count);
+
+/*
+判断一个有5个元素的整数数组是否是升序排列的
+*/
+// int arr[5] = {1, 3, 2, 4, 5};
+// int flag = 0;
+
+// for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+// {
+//     for (int j = i + 1; j < sizeof(arr) / sizeof(arr[0]); j++)
+//     {
+//         if (!(arr[i] <= arr[j]))
+//         {
+//             flag = 1;
+//         }
+//     }
+// }
+// if (flag == 0)
+// {
+//     printf("这是一个升序数组");
+// }
+// else
+// {
+//     printf("这不是一个升序数组");
+// }
+
+/*
+反转一个有5个元素的数组
+*/
+// int arr[5] = {1, 2, 3, 4, 5};
+
+// for (int max_index = (sizeof(arr) / sizeof(arr[0])) - 1, min_index = 0; max_index > min_index; min_index++, max_index--)
+// {
+//     int temp = arr[max_index];
+//     arr[max_index] = arr[min_index];
+//     arr[min_index] = temp;
+// }
+
+// for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+// {
+//     printf("%d ", arr[i]);
+// }
+
+/*
+
+    找出一个数组中的最大值和最小值。数组有5个元素
+
+    */
+// int arr[] = {5, 4, 3, 2, 1};
+// int max = arr[0], min = arr[0];
+// for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+// {
+//     if (arr[i] > max)
+//     {
+//         max = arr[i];
+//     }
+//     if (arr[i] < min)
+//     {
+//         min = arr[i];
+//     }
+// }
+// printf("数组中最大值%d，最小值%d", max, min);
+
+/*
+利用循环结构向一个数组中输入10个整数，并输出这些整数的和
+*/
+// int arr[10] = {0};
+// int sum = 0;
+// for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+// {
+//     int temp;
+//     scanf("%d", &temp);
+//     sum += temp;
+// }
+// printf("%d", sum);
+
+// char str[] = "";
+// if (str[0] == '\0')
+// {
+//     printf("11111");
+// }
+// int arr[3][2] = {{1, 2}, {3, 4}, {5, 6}};
+// // arr 代表数组首地址（首元素arr[0][0]地址），不管转不转型，ptr 都指向 1 的地址
+// int *ptr = (int *)arr; // 强制转换为指针类型
+// // int *ptr = arr; // 报错， incompatible pointer type 'int (*)[2]， 类型不匹配
+// printf("%d", *(ptr + 3));
+
+/*
+int(*p)[N] → 行指针，一次跳一整行（2 个 int）
+int(*p)[N] 里的 N = 二维数组的列数
+int *ptr → 元素指针，一次只跳 1 个 int
+*/
+// int arr[3][3] = {{1, 2, 7}, {3, 4, 8}, {5, 6, 9}};
+// int (*p)[3] = arr;
+// // 遍历行
+// for (int i = 0; i < 3; i++)
+// {
+//     // 遍历当前行每一列
+//     for (int j = 0; j < 3; j++)
+//     {
+//         // (*(p + i))[j] = arr[i][j]
+//         printf("%d ", *(*(p + i) + j));
+//     }
+//     putchar('\n');
+// }
+// int arr[2][2] = {{1, 2}, {3, 4}};
+// /*
+//     *arr[0] → arr[0][0] = 1
+//     *arr[1] → arr[1][0] = 3
+//  */
+// printf("%d", *arr[2]);
+
+// int arr[3][2] = {{1, 2}, {3, 4}, {5, 6}};
+// int *ptr = arr[1];
+// printf("%d", *(ptr + 1));
+
+// int arr[] = {1, 2, 3, 5, 6};
+// int *p = &arr[0];
+// printf("%d", *(p + 1));
 
 // int a = ~5;
 // printf("%d", a);
@@ -377,4 +550,127 @@ num = 10  // 二进制表示：1010
 // else
 // {
 //     printf("%c是其他字符\n", ch);
+// }
+
+// for (int i = 1; i <= 3; i++)
+// {
+//     for (int j = 1; j <= 2; j++)
+//     {
+//         if (j == 2)
+//         {
+//             break;
+//         }
+//         printf("%d-%d ", i, j);
+//     }
+// }
+// int c = 0;
+// while (1 + 2)
+// {
+//     printf("%d", c);
+//     if (c == 5)
+//     {
+//         break;
+//     }
+
+//     c++;
+// }
+
+// for (1 + 2; 0 < 1;)
+// {
+//     /* code */
+// }
+// int x = 23;
+// do
+// {
+//     printf("%2d", x--);
+// } while (!x);
+
+// int x = -1;
+// do
+// {
+//     x = x * x;
+//     printf("%d", x);
+// } while (!x);
+
+/*
+输出1-100之间能被3整除的数字
+*/
+// for (int i = 1; i <= 100; i++)
+// {
+//     if (i % 3 == 0)
+//     {
+//         printf("%d ", i);
+//     }
+// }
+
+/*
+打印99乘法表
+*/
+// for (int i = 1; i <= 9; i++)
+// {
+//     for (int j = 1; j <= i; j++)
+//     {
+//         printf("%d * %d = %d \t", i, j, (i * j));
+//     }
+//     printf("\n");
+// }
+
+/*
+打印1-100所有奇数之和
+*/
+// int sum = 0;
+// for (int i = 1; i <= 100; i++)
+// {
+//     if (!(i % 2 == 0))
+//     {
+//         sum += i;
+//     }
+// }
+// printf("1-100奇数之和等于%d", sum);
+
+/*
+计算一个数字的阶乘 6*5*4*3*2*1
+*/
+// int num;
+// long fact = 1; // 阶乘结果，用long防止溢出
+// printf("请输入一个数\n");
+// scanf("%d", &num);
+// for (int i = num; i > 1; i--)
+// {
+//     fact *= i;
+// }
+// printf("%d! = %ld\n", num, fact);
+
+/*
+输出1到100之间能被5整除但不能被3整除的数字
+*/
+// for (int i = 1; i <= 100; i++)
+// {
+//     if (i % 5 == 0 && i % 3 != 0)
+//     {
+//         printf("%d ", i);
+//     }
+// }
+
+/*
+输出一个数字的反向数字(不是字符)，即输入12345， 输出54321
+*/
+// long long int a;
+// scanf("%lld", &a);
+// while (a != 0)
+// {
+//     printf("%lld", (a % 10));
+//     a /= 10;
+// }
+
+/*
+输出所有两位数的数字中，十位和个位的和为8的数字
+*/
+
+// for (int i = 10; i <= 99; i++)
+// {
+//     if ((i % 10) + (i / 10) == 8)
+//     {
+//         printf("%d ", i);
+//     }
 // }
