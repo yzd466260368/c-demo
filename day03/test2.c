@@ -6,12 +6,70 @@ struct Person
     char name[10];
     int age;
 };
+struct Point
+{
+    int x;
+    int y;
+};
+struct
+{
+    int y;
+    int x;
+} Point;
+
+struct
+{
+    float salary;
+    char name[20];
+} employee = {50000.0, "Alice"};
+
+union test2
+{
+    float a;
+    float b;
+};
+
 int main(int argc, char const *argv[])
 {
-    struct Person p1;
-    p1.age = 10;
-    strcpy(p1.name, "p1");
-    printf("%s", p1.name);
+    // struct Person p1;
+    // p1.age = 10;
+    // strcpy(p1.name, "p1");
+    // printf("%s", p1.name);
+    struct Point p = {3, 4};
+    printf("%ld\n", sizeof(struct Point));
+
+    struct Point p1 = p;
+    printf("%d\n", p1.x);
+
+    struct Point *p2 = &p;
+    printf("%d\n", (*p2).y);
+
+    Point.x = 1;
+
+    printf("%d\n", Point.x);
+
+    printf("%.2lf\n", employee.salary);
+
+    union test2 t = {3.14};
+
+    printf("%.2f\n", t.b);
+
+    enum day
+    {
+        Sunday = 5,
+        Monday,
+        Tuesday,
+        Wednesday
+    };
+    printf("%d\n", Wednesday);
+
+    enum sizes
+    {
+        Small = 1,
+        Medium = 5,
+        Large
+    };
+    printf("%d", Large);
 
     return 0;
 }
