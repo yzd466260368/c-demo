@@ -38,8 +38,8 @@ int main(int argc, char const *argv[])
     int *p[5]; 指针数组，每个元素是一个指针
     int (*p)[5]; 数组指针，指向的是这一整个数组
     */
-    printf("%d\n", (*p)[0]);
-    printf("%d\n", arr[0]);
+    printf("1111%d\n", (*p)[0]);
+    printf("111%d\n", arr[0]);
 
     int arr2[3][3] = {
         {1, 2, 3},
