@@ -163,7 +163,7 @@ void Resize(Seq *seq, size_t new_size)
     if (new_size <= seq->size)
         return; // 新容量不小于当前容量时无需操作
     // 使用 realloc 扩容
-    DataType *new_data = realloc(seq->data, new_size * sizeof(DataType));
+    DataType *new_data = (DataType *)realloc(seq->data, new_size * sizeof(DataType));
     if (new_data == NULL)
     {
         // 分配失败，保持原数组不变
