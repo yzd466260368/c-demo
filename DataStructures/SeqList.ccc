@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+#define MAX_SIZE 100
+
+/*
+    顺序表结构
+*/
+typedef struct
+{
+    int data[MAX_SIZE]; // 存放元素
+    int length;         // 当前元素个数
+} SeqList;
+
+/*
+    初始化顺序表
+*/
+void initSeqList(SeqList *list)
+{
+    list->length = 0;
+}
+
+/*
+    插入元素
+
+    因为表中元素遵循插入顺序，
+    所以新元素直接插入到表尾。
+*/
+bool insertSeqList(SeqList *list, int value)
+{
+    if (list->length >= MAX_SIZE)
+    {
+        return false;
+    }
+
+    list->data[list->length] = value;
+    list->length++;
+
+    return true;
+}
+
+/*
+    顺序查找
+
+    查找成功：返回元素下标
+    查找失败：返回 -1
+*/
+int sequentialSearch(SeqList *list, int key)
+{
+    for (int i = 0; i < list->length; i++)
+    {
+        if (list->data[i] == key)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+/*
+    打印顺序表
+*/
+void printSeqList(SeqList *list)
+{
+    for (int i = 0; i < list->length; i++)
+    {
+        printf("%d ", list->data[i]);
+    }
+
+    printf("\n");
+}
+
+/*
+    测试代码
+*/
+int main()
+{
+    SeqList list;
+    initSeqList(&list);
+
+    insertSeqList(&list, 10);
+    insertSeqList(&list, 35);
+    insertSeqList(&list, 7);
+    insertSeqList(&list, 22);
+    insertSeqList(&list, 18);
+    insertSeqList(&list, 5);
+
+    printf("当前顺序表：");
+    printSeqList(&list);
+
+    int key = 22;
+
+    int index = sequentialSearch(&list, key);
+
+    if (index != -1)
+    {
+        printf("查找成功，元素 %d 的下标是 %d\n", key, index);
+    }
+    else
+    {
+        printf("查找失败，元素 %d 不存在\n", key);
+    }
+
+    return 0;
+}
