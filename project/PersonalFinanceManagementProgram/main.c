@@ -5,9 +5,7 @@
 
 int main()
 {
-    // todo 改造清单
-    // 1. 加入收入分类统计
-    // 2. 收入和支出记录支持时分秒，记录更详细贴近实际情况
+
     struct RecordList list;
     initRecordList(&list);
 
