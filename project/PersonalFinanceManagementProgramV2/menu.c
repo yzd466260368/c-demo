@@ -18,6 +18,7 @@ typedef void (*MenuFunc)(RecordStore *store);
 static void add_record(RecordStore *store);
 static void edit_record(RecordStore *store);
 static void delete_record(RecordStore *store);
+static void list_records(RecordStore *store);
 static void period_statistics(RecordStore *store);
 static void expense_statistics(RecordStore *store);
 static void income_statistics(RecordStore *store);
@@ -25,7 +26,6 @@ static void show_balance(RecordStore *store);
 static void show_chart(RecordStore *store);
 static void import_data(RecordStore *store);
 static void export_data(RecordStore *store);
-static void list_records(RecordStore *store);
 
 /* 辅助输出函数声明 */
 static void print_one_record(int display_index, const Record *record);
