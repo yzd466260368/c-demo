@@ -57,6 +57,33 @@ void insertion_sort(int arr[], int n)
     }
 }
 
+/*
+希尔排序（升级版插入排序）
+*/
+void shellSort(int arr[], int n)
+{
+    int gap, i, j, key;
+
+    // gap 逐渐缩小
+    for (gap = n / 2; gap > 0; gap /= 2)
+    {
+        // 对 gap 间隔的元素做插入排序
+        for (i = gap; i < n; i++)
+        {
+            key = arr[i];
+            j = i;
+
+            while (j >= gap && arr[j - gap] > key)
+            {
+                arr[j] = arr[j - gap];
+                j -= gap;
+            }
+
+            arr[j] = key;
+        }
+    }
+}
+
 /* =====================================================
  * 2. 冒泡排序
  *
